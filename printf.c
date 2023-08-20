@@ -1,13 +1,10 @@
-
-
-
-
 #include "main.h"
 
 int _printf(const char *format, ...)
 {
 	va_list cha;
-	int c = 0;
+	int index = 0;
+	char c;
 
 	if (format == NULL)
 		return (-1);
@@ -16,15 +13,21 @@ int _printf(const char *format, ...)
 
 	while (format && *format == '\0')
 	{
-		if (*format != '\0')
+		if (*format != '%')
 		{
 		write(1, format, strlen(format));
-		c++;
+		index++;
+		}
+		else if (*format == 'c')
+		{
+			c = va_arg(cha, int);	
+			write(1, &c, 1);
+			index++;
 		}
 	
 	}
 
-	return (c);
+	return (index);
 /*	for (c = 0; c < format; c++)
 	{
 		if (*format != '%')
