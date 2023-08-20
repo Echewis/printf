@@ -3,38 +3,55 @@
 int _printf(const char *format, ...)
 {
 	va_list cha;
-	int index = 0;
-	char c;
+	char cad;
 
-	if (format == NULL)
+	if (*format != '/0')
 		return (-1);
 
 	va_start(cha, format);
 
-	while (format && *format == '\0')
+	while (*format)
 	{
-		if (*format == '\0')
-			exit(0);
+		if (*format != '%')
+		{
+			write(1, format, 1);
+			cad++;
+		}
+		else
+		{
 
-		if (*format != '\0')
+		format ++;
+
+		if (*format == '\0')
+			break;
+		if (*format == '%')
 		{
 		write(1, format, strlen(format));
-		index++;
+		cad++;
 		}
 		else if (*format == 'c')
 		{
-			c = va_arg(cha, int);	
+			char c = va_arg(cha, int);	
 			write(1, &c, 1);
-			index++;
+			cad++;
 		}
 	
-	}
+		}
+		else if (*format == 's')
+		{
+			char *str = va_arg(cha, char*);
+			int len = 0;
+		/* strlen can work here as well */
+		while( str[len] != '\0')
+	 		len++;
+		write(1, str, len);
 
-	return (index);
-/*	for (c = 0; c < format; c++)
-	{
-		if (*format != '%')
-			write(1, format, strlen(format));
+		cad += len;
+		}
 	}
-	return (c);*/
+	format++;
+}
+
+	va_end(cha);
+	return (cad);
 }
