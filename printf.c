@@ -13,7 +13,10 @@ int _printf(const char *format, ...)
 
 	while (format && *format == '\0')
 	{
-		if (*format != '%')
+		if (*format == '\0')
+			exit(0);
+
+		if (*format != '\0')
 		{
 		write(1, format, strlen(format));
 		index++;

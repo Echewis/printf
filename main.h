@@ -10,5 +10,6 @@ int _printf(const char *format, ...);
 #include <string.h>
 int _putchar(char c);
 #include <unistd.h>
+#include <stdlib.h>
 
 #endif /* MAIN_H */
