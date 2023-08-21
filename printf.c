@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _printf - is the fuction
+ * @format: This is the argument
+ * Return: This will return cad
+ */
 int _printf(const char *format, ...)
 {
 	va_list cha;
@@ -20,7 +24,7 @@ int _printf(const char *format, ...)
 		else
 		{
 
-		format ++;
+		format++;
 
 		if (*format == '\0')
 			break;
@@ -31,7 +35,8 @@ int _printf(const char *format, ...)
 		}
 		else if (*format == 'c')
 		{
-			char c = va_arg(cha, int);	
+			char c = va_arg(cha, int);
+
 			write(1, &c, 1);
 			cad++;
 		}
@@ -40,8 +45,8 @@ int _printf(const char *format, ...)
 			char *str = va_arg(cha, char*);
 			int len = 0;
 		/* strlen can work here as well */
-		while( str[len] != '\0')
-	 		len++;
+		while (str[len] != '\0')
+			len++;
 		write(1, str, len);
 
 		cad += len;
