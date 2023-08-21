@@ -51,6 +51,17 @@ int _printf(const char *format, ...)
 
 		cad += len;
 		}
+		else if (*format == 'd' || *format == 'i')
+		{
+			int val = va_arg(cha, int);
+			printf("d", val);
+			cad++;
+		}
+		else
+		{
+			putchar(*format);
+			cad++;
+		}
 	}
 	format++;
 }
