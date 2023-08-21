@@ -3,9 +3,9 @@
 int _printf(const char *format, ...)
 {
 	va_list cha;
-	char cad;
+	char cad = 0;
 
-	if (*format != NULL)
+	if (format == NULL)
 		return (-1);
 
 	va_start(cha, format);
