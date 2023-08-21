@@ -5,7 +5,7 @@ int _printf(const char *format, ...)
 	va_list cha;
 	char cad;
 
-	if (*format != '/0')
+	if (*format != NULL)
 		return (-1);
 
 	va_start(cha, format);
@@ -34,8 +34,6 @@ int _printf(const char *format, ...)
 			char c = va_arg(cha, int);	
 			write(1, &c, 1);
 			cad++;
-		}
-	
 		}
 		else if (*format == 's')
 		{
