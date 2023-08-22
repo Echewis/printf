@@ -5,8 +5,8 @@
 #include <stdarg.h>
 int _printf(const char *format, ...);
 #include <string.h>
-int _putchar(char c);
+int printchar(char c);
 #include <unistd.h>
 #include <stdlib.h>
-
+int string_p(char *c);
 #endif /* MAIN_H */
