@@ -36,7 +36,6 @@ int _printf(const char *format, ...)
 		else if (*format == 'c')
 		{
 			char c = va_arg(cha, int);
-
 			write(1, &c, 1);
 			cad++;
 		}
@@ -54,13 +53,13 @@ int _printf(const char *format, ...)
 		else if (*format == 'd' || *format == 'i')
 		{
 			int val = va_arg(cha, int);
-			printf("d", val);
+			printf("%d", val);
 			cad++;
 		}
 		else
 		{
-			putchar(*format);
-			cad++;
+			write(1, format - 1, 2);
+			cad =+ 2;
 		}
 	}
 	format++;
