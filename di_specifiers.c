@@ -1,7 +1,7 @@
 #include "main.h"
 
-/*
- * numlen - Calculate the number of digits in an integer
+/**
+ * numlength - Calculate the number of digits in an integer
  * @n: the digit passed
  * Return: the no. of digits
  */
