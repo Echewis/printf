@@ -11,13 +11,13 @@ int numlength(int n)
 	int count = 0;
 
 	if (n == 0)
-		return 1;
+		return (1);
 	while (n != 0)
 	{
 		n /= 10;
 		count++;
 	}
-	return count;
+	return (count);
 }
 
 /**
@@ -59,5 +59,5 @@ int handle_d_i(va_list list)
 	print_int(num_to_print);
 	num += num_digits;
 
-	return num;
+	return (num);
 }
