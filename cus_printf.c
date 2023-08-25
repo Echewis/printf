@@ -33,6 +33,11 @@ int _printf(const char *format, ...)
 			printchar(va_arg(list, int));
 			x++;
 		}
+		else if (format[x + 1] == 'd' || format [x + 1] == 'i')
+		{
+			num += handle_d_i(list);
+			x++;
+		}
 		else if (format[x + 1] == '%')
 		{
 			printchar('%');
